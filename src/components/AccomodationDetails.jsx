@@ -12,6 +12,7 @@ function AccomodationDetails(props) {
 
   return (
     <div className="accommodation-card">
+      <h2>Accommodation details for {appartment.name}</h2>
       <img src={appartment.picture_url} alt="Apartment Picture" className="accommodation-image" />
       <div className="accommodation-details">
         <h2 className="accommodation-name">{appartment.name}</h2>

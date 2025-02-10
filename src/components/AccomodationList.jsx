@@ -10,8 +10,10 @@ function AccomodationList(props) {
         }
 
         return (
+          
           <div className="travel-card" key={appartment.id}>
-            <img src={appartment.picture_url} alt={appartment.name} className="travel-image" />
+            
+          <img src={appartment.picture_url} alt={appartment.name} className="travel-image" />
             <div className="travel-details">
               <p className="destination">{appartment.name}</p>
               <p className="destination">{appartment.host_location}</p>

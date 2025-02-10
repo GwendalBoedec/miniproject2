@@ -1,0 +1,117 @@
+/* home.css - Global Styles */
+
+/* Resetting Margin & Padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.navbar h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.navbar img {
+  width: 40px;
+  animation: rotate 25s linear infinite;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #fff;
+  width: 250px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #007bff;
+}
+
+/* Layout (Sidebar + Content) */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  margin-top: 60px; /* Space for the fixed header */
+}
+
+/* Content Area */
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px; /* Space for the sidebar */
+  overflow-y: auto;
+  margin-top: 20px; /* Add some space above the content */
+  min-height: calc(100vh - 60px - 40px); /* Full height minus navbar and footer */
+  padding-bottom: 80px; /* Space to avoid footer overlap */
+}
+
+
+/* Footer */
+.footer {
+  background-color:  blueviolet;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer img {
+  width: 45px;
+  margin-top: 5px;
+}
+
+/* Animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

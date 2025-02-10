@@ -1,171 +1,224 @@
-/* Global Styles */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.navbar {
-  width: 100%;
-  height: 100px;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  background-color: lightseagreen;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.navbar h2 {
-  text-align: left;
-}
-
-.navbar img {
-  width: 60px;
-  position: reletive;
-  top: 10px;
-}
-
-.sidebar {
-  width: 15%;
-  height: 100%;
-  position: fixed;
-  top: 100px;
-  left: 0;
-  background-color: lightseagreen;
-  padding-top: 20px;
-  padding-left: 20px;
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.sidebar li {
-  list-style: none;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  font-size: 24px;
+}
+
+.navbar img {
+  width: 50px;
+  animation: rotate 25s linear infinite; /* Rotates continuously */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* Start from 0 degrees */
+  }
+  to {
+    transform: rotate(360deg); /* End at 360 degrees (a full rotation) */
+  }
+}
+
+
+/* Layout (Sidebar + Content) */
+.layout {
+  display: flex;
+  min-height: 80vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #fff;
+  width: 250px;
+  padding: 15px;
+  border-right: 1px solid #ddd;
 }
 
 .sidebar ul {
-  padding-left: 0;
+  list-style: none;
 }
 
-.footer {
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: lightseagreen;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.sidebar li {
+  margin: 15px 0;
 }
 
-.footer a {
-  color: white;
+.sidebar a {
   text-decoration: none;
+  color: #333;
+  font-size: 18px;
 }
 
-/* Accommodation List CSS */
-.TravelList {
-  margin-left: 18%; /* Adjust to leave space for the sidebar */
-  margin-top: 120px; /* Adjust to leave space for navbar */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.sidebar a:hover {
+  color: #007bff;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
   padding: 20px;
-  overflow-y: auto;
-  max-height: 70vh; /* Make it scrollable */
 }
 
+/* Cards container: Flexbox to handle 2 per row and wrapping */
+.travel-cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to new rows */
+  gap: 20px; /* Adds space between the cards */
+  justify-content: space-between;
+}
+
+/* Individual travel card */
 .travel-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1 1 calc(50% - 20px); /* Two cards per row with spacing */
+  box-sizing: border-box; /* Ensure padding and margin are included in width */
+  max-width: calc(50% - 20px); /* Restrict the card width to 50% minus gap */
+}
+
+/* Resize image within the card */
+.travel-card img {
+  width: 100%;
+  height: auto; /* Ensure the aspect ratio is maintained */
+  border-radius: 8px;
+  margin-bottom: 15px; /* Adds spacing between the image and card details */
+}
+
+/* Card content and details */
+.travel-card .travel-details {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.travel-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Ensure the image doesn't stretch */
-}
-
-.travel-details {
-  padding: 15px;
-  text-align: left;
-}
-
-.destination {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 1rem;
-  color: #2a9d8f; /* Price color */
+.travel-card .destination {
+  font-size: 20px;
   font-weight: bold;
 }
 
-.labels {
-  margin-top: 10px;
-  font-size: 1rem;
+.travel-card .price {
+  color: #007bff;
 }
 
-.label {
-  background-color: #2a9d8f; /* Greenish background for the label */
+.travel-card .label {
+  background-color: #28a745;
   color: white;
-  padding: 5px 10px;
+  padding: 3px 8px;
+  margin-right: 5px;
   border-radius: 5px;
-  margin-right: 10px;
+}
+
+/* Button Actions (Delete and More Details) */
+.card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .delete-btn {
-  background-color: black; /* Black background for delete button */
+  background-color: black;
   color: white;
-  padding: 5px 5px;
   border: none;
-  border-radius: 5px;
+  padding: 8px 15px;
   cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.delete-btn:hover, .btn-primary:hover {
+  background-color: red;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Main Card Container */
+.accommodation-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  margin: 20px auto;
+  max-width: 800px; /* Limit the width of the card */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styling */
+.accommodation-image {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 400px; /* Limit the height for better layout */
+  object-fit: cover; /* Make the image cover the space */
+}
+
+/* Accommodation Details */
+.accommodation-details {
+  margin-top: 20px;
+}
+
+.accommodation-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.accommodation-location {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.accommodation-host,
+.accommodation-rating,
+.accommodation-description {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Back Button */
+.accommodation-back-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-.delete-btn:hover {
-  background-color: red; /* Darker red on hover */
+.accommodation-back-button:hover {
+  background-color: #0056b3;
 }
 
-/* Media query for small screen responsiveness */
-@media (max-width: 600px) {
-  .TravelList {
-    grid-template-columns: 1fr; /* Stack cards on top of each other */
-  }
-
-  .travel-card {
-    flex-direction: column; /* Stack image and text vertically on small screens */
-    text-align: center; /* Center-align text when stacked */
-  }
-
-  .travel-image {
-    width: 100px; /* Smaller image size */
-    height: 80px; /* Smaller height for mobile */
-    margin-right: 0; /* Remove margin between image and text */
-    margin-bottom: 10px; /* Add space below image */
-  }
-}

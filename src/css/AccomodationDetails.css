@@ -1,0 +1,60 @@
+/* accommodation-details.css */
+
+.accommodation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accommodation-image {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.accommodation-details {
+  width: 100%;
+}
+
+.accommodation-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.accommodation-location {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.accommodation-host,
+.accommodation-rating,
+.accommodation-description {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.accommodation-back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.accommodation-back-button:hover {
+  background-color: #0056b3;
+}

@@ -1,26 +1,42 @@
-function Homepage () {
-return (
-<>
+import { Link } from "react-router-dom";
+import githubLogo from "../assets/githubLogo.png" 
 
-<nav className="navbar"> 
-    <h2>FLAT RENTALS</h2>
+
+function Homepage(props) {
+  return (
+    <div className="layout">
+   <nav className="navbar"> 
+    <h2>Vacational Appartments</h2>
     <img src="./src/img/random-logo.png" alt="logo" />
      </nav>
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <ul>
+          <li><Link to="/">Accommodation List</Link></li>
+          {/*
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          */}
+        </ul>
+      </aside>
 
-<section className="sidebar">
-<li>
-    <ul><a href="">Back to top</a></ul>
-    <ul> <a href="">About</a></ul>
-</li>
+      {/* Main Content */}
+      <main className="content">
+        {props.children}
+      </main>
 
-</section>
-
-<footer className="footer">
-    <a href="https://github.com/GwendalBoedec/miniproject2/tree/main">Github Project</a>
-    </footer>
-
-</>
-)
+      {/* Footer */}
+      <footer className="footer">
+        <a href="https://github.com/GwendalBoedec/miniproject2/tree/main" target="_blank" rel="noopener noreferrer">
+          <img src={githubLogo} alt="GitHub Logo" width="40" height="40" />
+        </a>
+      </footer>
+    </div>
+  );
 }
 
-export default Homepage
+export default Homepage;
+
+
+
+

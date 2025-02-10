@@ -1,31 +1,31 @@
 import { Link, useParams } from "react-router-dom";
 
+// Link to the new CSS file
 
-function AccomodationDetails (props) {
-    const { AppartmentId } = useParams();
+function AccomodationDetails(props) {
+  const { appartmentId } = useParams();
+  const appartment = props.Appartments.find((appartment) => appartment.id === parseInt(appartmentId));
 
-    const appartment = props.Appartments.find((appartment) => {
-        return appartment.id === parseInt(AppartmentId);
-    });
+  if (!appartment) {
+    return <p>Apartment not found!</p>;
+  }
 
-    return (
-        <div className='MovieDetails card'>
-
-            {appartment.picture_url && <img src={appartment.picture_url} alt="Appartment Picture" />}
-
-            <h2>{appartment.name}</h2>
-            <h3>{appartment.host_location}</h3>
-            <p>Host name: {appartment.host_name}</p>
-            <p>Rating: {appartment.review_scores_rating}</p>
-            <p>Description: {appartment.description}</p>
-
-            <p>
-                <Link to="/" className="btn btn-primary">Back</Link>
-            </p>
-
-        </div>
-    );
+  return (
+    <div className="accommodation-card">
+      <img src={appartment.picture_url} alt="Apartment Picture" className="accommodation-image" />
+      <div className="accommodation-details">
+        <h2 className="accommodation-name">{appartment.name}</h2>
+        <h3 className="accommodation-location">{appartment.host_location}</h3>
+        <p className="accommodation-host">Host name: {appartment.host_name}</p>
+        <p className="accommodation-rating">Rating: {appartment.review_scores_rating}</p>
+        <p className="accommodation-description">Description: {appartment.description}</p>
+        <p>
+          <Link to="/" className="accommodation-back-button">Back</Link>
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default AccomodationDetails
+export default AccomodationDetails;
 

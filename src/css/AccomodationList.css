@@ -11,7 +11,7 @@
 }
 
 .travel-card {
-  width: 80%; /* One card per row, with a width of 80% */
+  width: 100%; /* One card per row, with a width of 80% */
   max-width: 800px; /* Set a maximum width to avoid overly large cards */
   background-color: white;
   border: 1px solid #ddd;

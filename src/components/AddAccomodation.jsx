@@ -8,6 +8,8 @@ function AddAccomodation(props) {
     const [description, setDescription] = useState("");  // Optional
     const [review_scores_rating, setRating] = useState("");  // Rating is required
     const [picture_url, setPictureUrl] = useState("");  // Optional
+    const [host_is_superhost, setHostIsSuperhost] = useState(false);  // Optional, boolean
+    const [price, setPrice] = useState("");  // Optional, number
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,7 +21,9 @@ function AddAccomodation(props) {
             host_name: host_name,
             description: description,
             review_scores_rating: review_scores_rating,
-            picture_url: picture_url // Optional property
+            picture_url: picture_url, // Optional property
+            host_is_superhost: host_is_superhost, // Optional boolean property
+            price: price // Optional price
         };
 
         // Call the parent function to add the property
@@ -32,6 +36,8 @@ function AddAccomodation(props) {
         setDescription("");
         setRating("");
         setPictureUrl(""); // Clear picture_url field
+        setHostIsSuperhost(false); // Clear host_is_superhost
+        setPrice(""); // Clear price
     };
 
     return (
@@ -41,7 +47,7 @@ function AddAccomodation(props) {
 
                 {/* Name input (required) */}
                 <label>
-                Name: <span style={{ color: "red" }}>*</span>
+                    Name: <span style={{ color: "red" }}>*</span>
                     <input
                         type="text"
                         name="name"
@@ -89,7 +95,7 @@ function AddAccomodation(props) {
 
                 {/* Rating input (required) */}
                 <label>
-                Rating: <span style={{ color: "red" }}>*</span>
+                    Rating: <span style={{ color: "red" }}>*</span>
                     <input
                         type="number"
                         name="rating"
@@ -112,6 +118,30 @@ function AddAccomodation(props) {
                         onChange={(e) => setPictureUrl(e.target.value)}  // Update state for picture_url
                     />
                 </label>
+                 {/* Price input (optional) */}
+                 <label>
+                    Price:
+                    <input
+                        type="number"
+                        name="price"
+                        placeholder="Enter the price of the property"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}  // Update state for price
+                    />
+                </label>
+
+                {/* Superhost input (optional, boolean) */}
+                <label className="checkbox-label">
+                    Host is Superhost: 
+                    <input
+                        type="checkbox"
+                        name="host_is_superhost"
+                        checked={host_is_superhost}
+                        onChange={(e) => setHostIsSuperhost(e.target.checked)}  // Update state for superhost status
+                    />
+                </label>
+
+               
 
                 <button type="submit">Submit</button>
             </form>

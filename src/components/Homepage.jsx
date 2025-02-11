@@ -12,12 +12,10 @@ function Homepage(props) {
       {/* Sidebar */}
       <aside className="sidebar">
         <ul>
+          <li><Link to="/About">About</Link></li>
           <li><Link to="/">Accommodation List</Link></li>
           <li><Link to="/Add">Add Accommodation</Link></li>
-          {/*
-          <li><Link to="/contact">Contact</Link></li>
-          */}
-        </ul>
+         </ul>
       </aside>
 
       {/* Main Content */}

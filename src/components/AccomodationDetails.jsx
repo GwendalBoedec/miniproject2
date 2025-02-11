@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import NotFoundPage from './NotFoundPage';
 
 // Link to the new CSS file
 
@@ -7,9 +8,8 @@ function AccomodationDetails(props) {
   const appartment = props.Appartments.find((appartment) => appartment.id === parseInt(appartmentId));
 
   if (!appartment) {
-    return <p>Apartment not found!</p>;
+    return <NotFoundPage />;
   }
-
   return (
     <div className="accommodation-card">
       <h2>Accommodation details for {appartment.name}</h2>

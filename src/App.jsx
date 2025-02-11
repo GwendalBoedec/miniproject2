@@ -5,10 +5,13 @@ import Homepage from './components/Homepage';
 import AccomodationList from './components/AccomodationList';
 import AccomodationDetails from './components/AccomodationDetails';
 import AddAccomodation from './components/AddAccomodation';
-import './css/Homepage.css'; // Layout CSS
-import './css/AccomodationDetails.css'; // Accommodation list CSS
-import './css/AccomodationList.css'; // Accommodation details CSS
+import About from './components/About';
+import NotFoundPage from './components/NotFoundPage';
+import './css/Homepage.css'; 
+import './css/AccomodationDetails.css'; 
+import './css/AccomodationList.css'; 
 import './css/AddAccomodation.css'
+import './css/About.css'
 
 function App() {
   const [Properties, setProperties] = useState(AccomodationsData.results);
@@ -41,7 +44,8 @@ function App() {
         <Route path="/" element={<AccomodationList Appartments={Properties} handleDelete={DeleteProperties} />} />
         <Route path="/:appartmentId" element={<AccomodationDetails Appartments={Properties} />} />
         <Route path="/Add" element={<AddAccomodation callbackToCreate={createProperty} />} />
-        <Route path="/*" element={<p>Sorry, page not found</p>} />
+        <Route path="/About" element={<About />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </Homepage>
     </>
@@ -49,3 +53,4 @@ function App() {
 }
 
 export default App;
+

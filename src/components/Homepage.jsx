@@ -13,9 +13,8 @@ function Homepage(props) {
       <aside className="sidebar">
         <ul>
           <li><Link to="/">Accommodation List</Link></li>
-          {/*
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          {/*<li><Link to="/contact">Contact</Link></li>
           */}
         </ul>
       </aside>

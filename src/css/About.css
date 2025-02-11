@@ -1,0 +1,52 @@
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+  }
+
+  #about-title {
+margin-bottom: 20px;
+  }
+
+  .teamContainer {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 20px; /* Space between cards */
+        padding: 20px; /* Add padding to the container for better spacing */
+        margin-bottom: 80px; /* Make space at the bottom to avoid footer overlap */
+  }
+
+  .teamContainer p {
+    width: 50%
+}
+
+.about-project {
+    margin-bottom: 20px;
+}
+
+  .profil-picture img {
+    width: 30%; /* Make the image take up half of the card */
+    height: auto; /* Maintain aspect ratio of the image */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px; /* Increase space between image and content */
+  }
+
+  .team-card {
+    justify-content: space-evenly;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: linear-gradient(135deg, #f0f0f0, #d6d6d6);
+    max-width: 1000px;  
+    padding: 20px; /* Increase padding for more space inside the card */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Using flex to arrange image and content side by side */
+    align-items: center; /* Vertically center content */
+  }

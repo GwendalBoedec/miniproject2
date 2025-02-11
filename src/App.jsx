@@ -4,9 +4,12 @@ import AccomodationsData from "../data/listings.json"
 import Homepage from './components/Homepage';
 import AccomodationList from './components/AccomodationList';
 import AccomodationDetails from './components/AccomodationDetails';
+import ErrorPage from './components/Errorpage';
+import About from './components/About';
 import './css/Homepage.css'; // Layout CSS
 import './css/AccomodationDetails.css'; // Accommodation list CSS
 import './css/AccomodationList.css'; // Accommodation details CSS
+import './css/About.css';
 
 function App() {
   const [Properties, setProperties] = useState(AccomodationsData.results);
@@ -22,6 +25,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AccomodationList Appartments={Properties} handleDelete={DeleteProperties} />} />
         <Route path="/:appartmentId" element={<AccomodationDetails Appartments={Properties} />} />
+        <Route path="/*" element={<ErrorPage />} /> // tried to add this page but so far it does not show up
+        <Route path="/about" element={<About />} /> 
       </Routes>
     </Homepage>
     </>

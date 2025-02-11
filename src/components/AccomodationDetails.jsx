@@ -7,7 +7,7 @@ function AccomodationDetails(props) {
   const appartment = props.Appartments.find((appartment) => appartment.id === parseInt(appartmentId));
 
   if (!appartment) {
-    return <p>Apartment not found!</p>;
+    return <p>Appartment not found!</p>;
   }
 
   return (

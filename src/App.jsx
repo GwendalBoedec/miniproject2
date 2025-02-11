@@ -41,7 +41,7 @@ function App() {
         <Route path="/" element={<AccomodationList Appartments={Properties} handleDelete={DeleteProperties} />} />
         <Route path="/:appartmentId" element={<AccomodationDetails Appartments={Properties} />} />
         <Route path="/Add" element={<AddAccomodation callbackToCreate={createProperty} />} />
-        <Route path="*" element={<p>Sorry, page not found</p>} />
+        <Route path="/*" element={<p>Sorry, page not found</p>} />
       </Routes>
     </Homepage>
     </>

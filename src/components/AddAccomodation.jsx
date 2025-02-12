@@ -100,7 +100,8 @@ function AddAccomodation(props) {
                         type="number"
                         name="rating"
                         min={1}
-                        max={10}
+                        max={5}
+                        step="0.1"
                         required
                         value={review_scores_rating}
                         onChange={(e) => setRating(e.target.value)}  // Update state for rating

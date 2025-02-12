@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 function AccomodationList(props) {
   return (
+    <>
+    <h1> Make your choice! </h1>
     <section className="TravelList">
       {props.Appartments.map((appartment) => {
         let hostLabel = "";
@@ -10,14 +12,14 @@ function AccomodationList(props) {
         }
 
         return (
-          
+                  
           <div className="travel-card" key={appartment.id}>
             
           <img src={appartment.picture_url} alt={appartment.name} className="travel-image" />
             <div className="travel-details">
               <p className="destination">{appartment.name}</p>
               <p className="destination">{appartment.host_location}</p>
-              <p className="price">{appartment.price ? `Price: ${appartment.price} €` : null}</p>
+              <p className="price">{appartment.price ? `Price per night: ${appartment.price}` : null}</p>
               <p className="labels">
                 {hostLabel && <span className="label">{hostLabel}</span>}
               </p>
@@ -27,9 +29,11 @@ function AccomodationList(props) {
               </Link>
             </div>
           </div>
+          
         );
       })}
     </section>
+    </>
   );
 }
 

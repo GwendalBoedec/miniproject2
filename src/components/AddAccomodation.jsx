@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddAccomodation(props) {
     // Initialize state for each property that we may use
@@ -10,6 +11,8 @@ function AddAccomodation(props) {
     const [picture_url, setPictureUrl] = useState("");  // Optional
     const [host_is_superhost, setHostIsSuperhost] = useState(false);  // Optional, boolean
     const [price, setPrice] = useState("");  // Optional, number
+
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -38,6 +41,8 @@ function AddAccomodation(props) {
         setPictureUrl(""); // Clear picture_url field
         setHostIsSuperhost(false); // Clear host_is_superhost
         setPrice(""); // Clear price
+
+        navigate("/")
     };
 
     return (

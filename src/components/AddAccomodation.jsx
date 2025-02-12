@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddAccomodation(props) {
     // Initialize state for each property that we may use
@@ -13,6 +15,8 @@ function AddAccomodation(props) {
     const [price, setPrice] = useState("");  // Optional, number
 
     const navigate = useNavigate();
+
+    const notifyAdd = () => toast("announce added!")
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -42,7 +46,12 @@ function AddAccomodation(props) {
         setHostIsSuperhost(false); // Clear host_is_superhost
         setPrice(""); // Clear price
 
-        navigate("/")
+        
+        // back to list page
+        setTimeout(() => {
+            navigate("/")
+        }, 2000)
+        
     };
 
     return (
@@ -148,8 +157,12 @@ function AddAccomodation(props) {
                 </label>
 
                
-
-                <button type="submit">Submit</button>
+                <div className="grid place-items-center h-dvh bg-zinc-900/15">
+                <button onClick={notifyAdd} type="submit">Create Announce</button>
+                <ToastContainer
+                position="bottom-right"
+                autoClose={2000}/>
+                </div>
             </form>
         </section>
     );

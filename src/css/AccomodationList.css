@@ -1,5 +1,7 @@
 /* accommodationList.css */
-
+#list-title {
+  margin-bottom: 20px;
+}
 /* Flexbox layout for cards */
 .card-container {
   display: flex;

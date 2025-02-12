@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function AddAccomodation(props) {
+function AddAccommodation(props) {
     // Initialize state for each property that we may use
     const [name, setName] = useState("");  // required
     const [host_location, setHostLocation] = useState("");  // Optional
@@ -16,46 +16,56 @@ function AddAccomodation(props) {
 
     const navigate = useNavigate();
 
-    const notifyAdd = () => toast("announce added!")
+    // Form validation function
+    const formIsValid = () => {
+        return name !== "" && review_scores_rating !== "";
+    };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent form submission and page reload
 
-        // Create the object to send to the parent component
-        const propObj = {
-            name: name,
-            host_location: host_location,
-            host_name: host_name,
-            description: description,
-            review_scores_rating: review_scores_rating,
-            picture_url: picture_url, // Optional property
-            host_is_superhost: host_is_superhost, // Optional boolean property
-            price: price // Optional price
-        };
+        // Check if the form is valid
+        if (formIsValid()) {
+            // Create the object to send to the parent component
+            const propObj = {
+                name,
+                host_location,
+                host_name,
+                description,
+                review_scores_rating,
+                picture_url,
+                host_is_superhost,
+                price
+            };
 
-        // Call the parent function to add the property
-        props.callbackToCreate(propObj);
+            // Call the parent function to add the property
+            props.callbackToCreate(propObj);
 
-        // Clear the form fields after submitting
-        setName("");
-        setHostLocation("");
-        setHostName("");
-        setDescription("");
-        setRating("");
-        setPictureUrl(""); // Clear picture_url field
-        setHostIsSuperhost(false); // Clear host_is_superhost
-        setPrice(""); // Clear price
+            // Show success toast
+            toast("Accommodation added successfully!");
 
-        
-        // back to list page
-        setTimeout(() => {
-            navigate("/")
-        }, 2000)
-        
+            // Clear the form fields after submitting
+            setName("");
+            setHostLocation("");
+            setHostName("");
+            setDescription("");
+            setRating("");
+            setPictureUrl(""); 
+            setHostIsSuperhost(false); 
+            setPrice(""); 
+
+            // Redirect to home page after 2 seconds
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
+        } else {
+            // Show a warning toast if the form is not valid
+            toast("Please fill in all required fields!");
+        }
     };
 
     return (
-        <section className="AddMovie box">
+        <section className="AddAccommodation box">
             <h1>Please Add the Accommodation Details</h1>
             <form onSubmit={handleSubmit}>
 
@@ -115,7 +125,7 @@ function AddAccomodation(props) {
                         name="rating"
                         min={1}
                         max={5}
-                        step="0.1"
+                        step="0.01"
                         required
                         value={review_scores_rating}
                         onChange={(e) => setRating(e.target.value)}  // Update state for rating
@@ -156,16 +166,13 @@ function AddAccomodation(props) {
                     />
                 </label>
 
-               
                 <div className="grid place-items-center h-dvh bg-zinc-900/15">
-                <button onClick={notifyAdd} type="submit">Create Announce</button>
-                <ToastContainer
-                position="bottom-right"
-                autoClose={2000}/>
+                    <button type="submit">Add Accommodation</button>
+                    <ToastContainer position="bottom-right" autoClose={2000} />
                 </div>
             </form>
         </section>
     );
 }
 
-export default AddAccomodation;
+export default AddAccommodation;

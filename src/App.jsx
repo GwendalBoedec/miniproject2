@@ -6,6 +6,7 @@ import AccomodationList from './components/AccomodationList';
 import AccomodationDetails from './components/AccomodationDetails';
 import AddAccomodation from './components/AddAccomodation';
 import About from './components/About';
+import EditAccommodation from './components/EditAccomodation';
 import NotFoundPage from './components/NotFoundPage';
 import './css/Homepage.css'; 
 import './css/AccomodationDetails.css'; 
@@ -35,6 +36,13 @@ function App() {
 
     setProperties(newList);
   }
+  const updateApartment = (updatedApartment) => {
+    setProperties((prevProperties) =>
+      prevProperties.map((apartment) =>
+        apartment.id === updatedApartment.id ? updatedApartment : apartment
+      )
+    );
+  };
 
   return (
     <>
@@ -43,6 +51,7 @@ function App() {
       
         <Route path="/" element={<AccomodationList Appartments={Properties} handleDelete={DeleteProperties} />} />
         <Route path="/:appartmentId" element={<AccomodationDetails Appartments={Properties} />} />
+        <Route path="/:appartmentId/edit" element={<EditAccommodation Appartments={Properties} callbackToUpdate={updateApartment} />} />
         <Route path="/Add" element={<AddAccomodation callbackToCreate={createProperty} />} />
         <Route path="/About" element={<About />} />
         <Route path="/*" element={<NotFoundPage />} />

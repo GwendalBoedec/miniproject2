@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function AccomodationList(props) {
   
-  const notifyDelete = () => toast("announce deleted!") //function that generates toast
+  const notifyDelete = (appartment) => toast(`${appartment.name} with ID ${appartment.id} is deleted!`) //function that generates toast
 
   return (
     <>
@@ -27,12 +27,12 @@ function AccomodationList(props) {
             <div className="travel-details">
               <p className="destination">{appartment.name}</p>
               <p className="destination">{appartment.host_location}</p>
-              <p className="price">{appartment.price ? `Price per night: ${appartment.price}` : null}</p>
+              <p className="price">{appartment.price ? `Price per night: ${appartment.price}` : "Price per night: $"}</p>
               <p className="labels">
                 {hostLabel && <span className="label">{hostLabel}</span>}
               </p>
               
-              <button onClick={() => {props.handleDelete(appartment.id); notifyDelete();} } 
+              <button onClick={() => {props.handleDelete(appartment.id); notifyDelete(appartment);} } 
                       className="delete-btn">Delete</button>               
               <Link to={`/${appartment.id}`}>
                 <button className="details-btn">More details</button>

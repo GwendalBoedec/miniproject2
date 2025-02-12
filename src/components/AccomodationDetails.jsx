@@ -23,6 +23,9 @@ function AccomodationDetails(props) {
         <p>
           <Link to="/" className="accommodation-back-button">Back</Link>
         </p>
+        <p>
+          <Link to={`/${appartmentId}/edit`} className="accommodation-back-button">Edit Accommodation</Link>
+        </p>
       </div>
     </div>
   );

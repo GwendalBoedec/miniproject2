@@ -51,6 +51,7 @@ margin-bottom: 20px;
     transition: transform 0.3s ease-in-out;
     display: flex; /* Using flex to arrange image and content side by side */
     align-items: center; /* Vertically center content */
+    text-align: justify;
   }
 
   .team-card h3 {

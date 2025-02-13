@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AccomodationsData from "../data/listings.json"
 import Homepage from './components/Homepage';
-import AccomodationList from './components/AccomodationList';
-import AccomodationDetails from './components/AccomodationDetails';
-import AddAccomodation from './components/AddAccomodation';
-import About from './components/About';
-import EditAccommodation from './components/EditAccomodation';
-import NotFoundPage from './components/NotFoundPage';
+import AccomodationList from './components/pages/AccomodationList';
+import AccomodationDetails from './components/pages/AccomodationDetails';
+import AddAccomodation from './components/pages/AddAccomodation';
+import About from './components/pages/About';
+import EditAccommodation from './components/pages/EditAccomodation';
+import NotFoundPage from './components/pages/NotFoundPage';
 import './css/Homepage.css'; 
 import './css/AccomodationDetails.css'; 
 import './css/AccomodationList.css'; 

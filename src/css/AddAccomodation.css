@@ -132,3 +132,8 @@ input[type="checkbox"] {
   width: auto;
   height: auto;
 }
+
+.AddAccommodation-box h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}

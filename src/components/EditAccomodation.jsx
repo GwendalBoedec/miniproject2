@@ -69,7 +69,7 @@ function EditAccommodation(props) {
         
         {/* Name input (required) */}
         <label>
-          Name: 
+          Title of the announce: 
           <input
             type="text"
             name="name"

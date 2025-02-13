@@ -52,3 +52,7 @@ margin-bottom: 20px;
     display: flex; /* Using flex to arrange image and content side by side */
     align-items: center; /* Vertically center content */
   }
+
+  .team-card h3 {
+    margin-right: 10px;
+  }

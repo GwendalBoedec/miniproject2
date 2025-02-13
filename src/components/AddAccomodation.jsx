@@ -65,13 +65,13 @@ function AddAccommodation(props) {
     };
 
     return (
-        <section className="AddAccommodation box">
-            <h1>Please Add the Accommodation Details</h1>
+        <section className="AddAccommodation-box">
+            <h1>Please add the accommodation details</h1>
             <form onSubmit={handleSubmit}>
 
                 {/* Name input (required) */}
                 <label>
-                    Name: <span style={{ color: "red" }}>*</span>
+                    Title of the announce: <span style={{ color: "red"}}>*</span>
                     <input
                         type="text"
                         name="name"

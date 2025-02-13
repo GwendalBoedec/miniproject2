@@ -6,13 +6,13 @@ function Homepage(props) {
   return (
     <div className="layout">
    <nav className="navbar"> 
-    <h2>Vacational Appartments</h2>
+    <h2>IronEscapes</h2>
     <img src="./src/img/random-logo.png" alt="logo" />
      </nav>
       {/* Sidebar */}
       <aside className="sidebar">
         <ul>
-          <li><Link to="/About">About</Link></li>
+          <li><Link to="/About">About IronEscapes</Link></li>
           <li><Link to="/">Accommodation List</Link></li>
           <li><Link to="/Add">Add Accommodation</Link></li>
          </ul>
